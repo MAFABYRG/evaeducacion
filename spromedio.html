@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Reto BBVA | Ejercicio para el calculo mensual de interes</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .tableStyle {
+            width: 100%;
+            font-size: 14px;
+        }
+    </style>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="row mt-md-2">
+            <div class="col-md-11 mx-md-auto">
+                <div class="card bg-light border-dark">
+
+                    <div class="card-header" style="height:35px">
+                        <h5>Calcula el monto de tu interés mensual </h5>
+                    </div>
+
+                    <div class="card-body">
+                        <p>
+                            El monto de interés mensual se calcula en base al sado promedio de tu tarjeta. ¿Sabes lo que es el Saldo Promedio diario?
+                            Es la metodología que la mayoría de las entidades financieras utilizan para el cálculo de los intereses. Ésta consiste en dividir los saldos —del periodo— entre el número de días de una fecha de corte a otra (promedio).
+                            La fórmula para el cálculo es:
+
+                        </p>
+                        <b>SALDO PROMEDIO DIARIO X TASA INTERES MENSUAL X IVA</b>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row mt-md-2">
+            <div class="col-md-11 mx-md-auto">
+                <div class="card bg-light border-dark">
+
+                    <div class="card-header" style="height:35px">
+                        <h5>Ejercicio para el calculo del interés de tu tarjeta de crédito</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="tableStyle">
+
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            1.-Tasa de interés anual:
+                                        </td>
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtInteres" placeholder="%" class="form-control form-control-sm" onkeydown="return (event.keyCode!=13);" onkeypress="return isNumberKey(this,event)" type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            2.-Ingresa Saldo Inicial*:
+                                      
+                                        </td>
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtsinical" placeholder="$" class="form-control form-control-sm" type="number" />
+                                       
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 100%; text-align: right" colspan="2">
+                                            <span class="text-muted small">*(Lo que quedaste a deber del mes anterior, esto no incluye compras a meses sin intereses).</span>
+                                 
+                                        </td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            3.-Ingresa el monto de una compra realizada en el mes:
+                                         
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtcompra1"  placeholder="$" class="form-control form-control-sm" type="number" />
+                                          
+                                        </td>
+                                     </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            4.-Segunda compra opcional:
+                                         
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtcompra2" placeholder="$" class="form-control form-control-sm" type="number" />
+                                          
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            5.-Tercera compra opcional:
+
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtcompra3" placeholder="$" class="form-control form-control-sm" type="number" />
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right">
+                                            5.-Pago realizado:
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="txtPago" placeholder="$" class="form-control form-control-sm" type="number" />
+                                         
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 70%; text-align: right"></td>
+                                        <td style="width: 30%; text-align: left">
+                                            <input id="btnCalucla" class="btn btn-info mt-md-2" type="button" onclick="getSaldo();" value="Calcula" />
+                                        </td>
+                                     
+                                    </tr>
+                                </table>
+                                <br />
+                                <div class="card bg-dark text-white">
+                                    <table class="tableStyle">
+                                        <tr>
+                                            <td style="width: 100%; height:30px; text-align: center" colspan="3">
+                                                <strong>Resultados</strong>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="width: 50%; text-align: right">
+                                                Saldo Promedio:
+                                            </td>
+                                            <td style="width: 20%; text-align: left">
+                                                <input id="txtspromedio" readonly="readonly" placeholder="$" class="form-control form-control-sm" />
+                                            </td>
+                                            <td style="width: 30%; text-align: left">
+                                                </td>
+                                          </tr>
+                                        <tr>
+                                            <td style="width: 50%; text-align: right">
+                                               Intereses generados:
+                                            </td>
+                                            <td style="width: 20%; text-align: left">
+                                                <input id="txtinteres" readonly="readonly" placeholder="$" class="form-control form-control-sm" />
+                                            </td>
+                                            <td style="width: 30%; text-align: left"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 50%; text-align: right">
+                                                Intereses + IVA:
+                                            </td>
+                                            <td style="width: 20%; text-align: left">
+                                                <input id="txtinteresiva" readonly="readonly" placeholder="$" class="form-control form-control-sm" />
+                                            </td>
+                                            <td style="width: 30%; text-align: left"></td>
+                                        </tr>
+                                       
+                                    </table>
+</div>
+                                
+</div>
+                            <div class="col-md-6">
+
+                                <table class="tableStyle bg-dark text-white">
+
+                                    <tr>
+                                        <td style="width: 20%; text-align: center">
+                                            Fecha
+                                        </td>
+                                        <td style="width: 18%; text-align: center">
+                                            Dias transcurridos
+                                        </td>
+                                        <td style="width: 23%; text-align: center">
+                                            Compras realizadas
+                                        </td>
+                                        <td style="width: 23%; text-align: center">
+                                            Pagos
+                                        </td>
+                                        <td style="width: 23%; text-align: center">
+                                            Saldo Diario
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <div id="mydivItems">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                  
+
+
+                </div>
+                <script src="Scripts/jquery-3.0.0.js"></script>
+                <script src="Scripts/bootstrap.js"></script>
+        </div>
+</body>
+
+</html>
+<script src="Scripts/JSALDO.js"></script>

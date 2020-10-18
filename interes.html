@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Reto BBVA | Calcula de interes tu compra</title>
+	<meta charset="utf-8" />
+    <style type="text/css">
+        .tableStyle {
+            width: 100%;
+            font-size: 14px;
+        }
+    </style>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-md-5">
+            <div class="col-md-12 mx-md-auto">
+                <div class="card bg-light border-dark">
+
+                    <div class="card-header" style="height:35px">
+                        <h5>Simulador de compras con tarjeta de credito </h5>
+                    </div>
+
+                    <div class="card-body">
+                        Siempre que te sea posible realiza tus compras a meses sin intereses, pero si en algún momento requieres hacer una compra y esta no tiene la opción de meses sin intereses es importante que te fijes y que revises cuanto pagaras dependiendo de tres factores: </p>
+                        <br />
+                        Tasa de Interes Anual(%): <b>La puedes encontrar en tu estado de cuenta</b>
+                        <br />
+                        Meses que tardaras en liquidar tu cuenta:<b>La mayoria de las tarjetas tienen cortes mensuales</b>
+                        <p>Este calculo te dara un pago promedio que deber de considerar ademas del total que pagaras con intereses  + el 16% del IVA</p>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-11 mx-md-auto">
+
+                        <div class="card bg-dark text-white">
+                            <table class="tableStyle">
+
+                                <tr>
+                                    <td style="width: 15%; text-align: right">
+                                        Costo de tu producto:
+                                    </td>
+                                    <td style="width: 12%; text-align: left">
+                                        <input id="txtMonto" class="form-control form-control-sm" type="number" />
+                                    </td>
+                                    <td style="width: 15%; text-align: right">
+                                        Tasa Interes Anual:
+                                    </td>
+                                    <td style="width: 12%; text-align: left">
+                                        <input id="txtInteres" class="form-control form-control-sm" onkeydown="return (event.keyCode!=13);" onkeypress="return isNumberKey(this,event)" type="text" />
+                                    </td>
+                                    <td style="width: 16%; text-align: right">
+                                        Meses para pagar:
+
+                                    </td>
+                                    <td style="width: 14%; text-align: left">
+
+                                        <input id="txtMeses" class="form-control form-control-sm" type="number" />
+                                    </td>
+                                    <td style="width: 15%; text-align: center">
+                                        <input id="btnCalucla" class="btn btn-info" type="button" onclick="getPagos();" value="Calcula" />
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-md-5">
+                    <div class="col-md-11 mx-md-auto">
+
+                        <div class="card bg-dark text-white">
+                            <table class="tableStyle">
+                                <tr>
+
+
+                                    <td style="width: 20%; text-align: right">
+                                        Pago Mensual Promedio:
+                                    </td>
+                                    <td style="width: 15%; text-align: left">
+                                        <input id="txtpromedio" class="form-control form-control-sm" readonly="true" type="text" />
+                                    </td>
+                                    <td style="width: 13%; text-align: right">
+                                        Total Pagado:
+                                    </td>
+
+                                    <td style="width: 18%; text-align: left">
+                                        <input id="txtpagado" class="form-control form-control-sm" readonly="true" type="text" />
+                                    </td>
+                                    <td style="width: 15%; text-align: right">
+                                        Intereses totalas:
+                                    </td>
+                                    <td style="width: 18%; text-align: left">
+                                        <input id="txtitotales" class="form-control form-control-sm" readonly="true" type="text" />
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-11 mx-md-auto">
+
+                        <table class="tableStyle bg-dark text-white">
+
+                            <tr>
+                                <td style="width: 7%; text-align: center">
+                                    #Mes
+                                </td>
+                                <td style="width: 20%; text-align: center">
+                                    Intereses
+                                </td>
+                                <td style="width: 23%; text-align: center">
+                                    Iva Mensual
+                                </td>
+                                <td style="width: 25%; text-align: center">
+                                    Cuota Total
+                                </td>
+                                <td style="width: 25%; text-align: center">
+                                    Deuda Total
+                                </td>
+
+                            </tr>
+                        </table>
+                        <div id="mydivItems">
+                        </div>
+                        <br />
+                        
+                    </div>
+                </div>
+
+            
+            </div>
+
+
+
+        </div>
+
+
+        </div>
+                <script src="Scripts/jquery-3.0.0.js"></script>
+                <script src="Scripts/bootstrap.js"></script>
+</body>
+
+</html>
+
+   
+<script src="Scripts/JSCALCULA.js"></script>
